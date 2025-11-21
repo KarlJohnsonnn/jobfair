@@ -18,9 +18,9 @@ This repository contains my professional profile and CV for the 2025 Job Fair. T
 
 ## Education
 
-- **Dr. rer. nat.** in Meteorology - Universität Leipzig (2021)
-- **M.Sc.** in Meteorology - Universität Leipzig (2015)
-- **Apprenticeship** Precision Machinist - Rauschert Kloster Veilsdorf (2009)
+- **Dr. rer. nat.** in Atmospheric Science - Universität Leipzig (2022)
+- **M.Sc.** in Applied Mathematics - HTWK Leipzig (2017)
+- **Apprenticeship** Precision Machinist - Sitec Industrietechnologie GmbH (2010)
 
 ## Contact
 
