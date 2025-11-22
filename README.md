@@ -11,10 +11,10 @@ This repository contains my professional profile and CV for the 2025 Job Fair. T
 ## Key Areas
 
 - **High-Performance Computing (HPC)** - GPU acceleration, parallel computing
-- **Scientific Computing** - Atmospheric modeling, radiative transfer
+- **Scientific Computing** - Atmospheric modeling, sparse linear solver
 - **Machine Learning & AI** - PyTorch, TensorFlow, model deployment
-- **Programming** - Fortran, Python, CUDA, C++
-- **Systems** - UNIX/Linux administration, workflow optimization
+- **Programming** - Fortran, Python, CUDA, OpenACC
+- **Systems** - UNIX/Linux, MacOS, NeoVIM workflow optimization
 
 ## Education
 
