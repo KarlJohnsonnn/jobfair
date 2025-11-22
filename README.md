@@ -14,7 +14,7 @@ This repository contains my professional profile and CV for the 2025 Job Fair. T
 - **Scientific Computing** - Atmospheric modeling, sparse linear solver
 - **Machine Learning & AI** - PyTorch, TensorFlow, model deployment
 - **Programming** - Fortran, Python, CUDA, OpenACC
-- **Systems** - UNIX/Linux, MacOS, NeoVIM workflow optimization
+- **Systems** - UNIX/Linux, MacOS, Git, NeoVIM workflow optimization
 
 ## Education
 
