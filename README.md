@@ -1,10 +1,8 @@
-# Dr. Willi Schimmel - Professional Profile
-
-Job Fair 2025 Presentation
+# Dr. Willi Schimmel - Profile Overview
 
 ## About
 
-This repository contains my professional profile and CV for the 2025 Job Fair. The page showcases my expertise in High-Performance Computing, Scientific Computing, and Machine Learning.
+This repository contains my professional profile and a short CV, showcasing my expertise in High-Performance Computing, Scientific Computing, and Machine Learning.
 
 **Live Site:** [https://karljohnsonnn.github.io/jobfair](https://karljohnsonnn.github.io/jobfair)
 
@@ -31,10 +29,6 @@ This repository contains my professional profile and CV for the 2025 Job Fair. T
 ## Copyright & License
 
 © 2025 Dr. Willi Schimmel. All rights reserved.
-
-This work is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
-
-See [LICENSE](LICENSE) file for full details.
 
 ---
 
