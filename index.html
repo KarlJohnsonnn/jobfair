@@ -3,935 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Willi Schimmel - Professional Overview</title>
+    <meta name="description" content="Scientific CV for Dr. Willi Schimmel with background in atmospheric modeling, machine learning, remote sensing, numerical methods, and high-performance computing.">
+    <title>Dr. Willi Schimmel | Scientist Resume</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        
-        @page {
-            size: A5;
-            margin: 0;
+        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@700&display=swap");
+
+        :root {
+            color-scheme: light;
+            --bg: #edf3f8;
+            --paper: rgba(255, 255, 255, 0.74);
+            --paper-strong: rgba(255, 255, 255, 0.88);
+            --line: rgba(33, 57, 92, 0.14);
+            --line-strong: rgba(33, 57, 92, 0.28);
+            --text: #1d2a3a;
+            --muted: #53657d;
+            --accent: #4267ac;
+            --accent-soft: #d9e5fb;
+            --accent-warm: #efb9a8;
+            --accent-mint: #bfe8dd;
+            --shadow: 0 28px 60px rgba(48, 72, 109, 0.12);
+            --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+            --sans: "IBM Plex Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --scribble: "Caveat", cursive;
         }
-        
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            font-size: 16px;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.4;
-            color: #1e293b;
-            background: #ffffff;
-            max-width: 150mm;
-            margin: 0 auto;
-            font-size: 10.5px;
+            margin: 0;
+            font-family: var(--sans);
+            line-height: 1.58;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(217, 229, 251, 0.95), transparent 22rem),
+                radial-gradient(circle at top right, rgba(191, 232, 221, 0.8), transparent 20rem),
+                linear-gradient(rgba(66, 103, 172, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(66, 103, 172, 0.06) 1px, transparent 1px),
+                var(--bg);
+            background-size: auto, auto, 2rem 2rem, 2rem 2rem, auto;
+            min-height: 100vh;
         }
-        
-        .page {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Striking Header with Gradient */
-        .hero {
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 50%, #1e40af 100%);
-            padding: 16px 18px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            border-radius: 0;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 0;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-image {
-            position: absolute;
-            top: 8px;
-            right: 10px;
-            width: auto;
-            height: auto;
-            max-height: 140px;
-            object-fit: contain;
-            z-index: 3;
-            opacity: 0.8;
-        }
-        
-        h1 {
-            font-size: 30px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 4px;
-            letter-spacing: -0.8px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .tagline {
-            font-size: 12px;
-            color: rgba(255,255,255,0.95);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom:  10px;
-        }
-        
-        .hero-badges {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
-            padding: 4px 10px;
-            border-radius: 0;
-            font-size: 9.5px;
-            font-weight: 700;
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.3);
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-        }
-        
-        /* Contact Info */
-        .hero-contact {
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-            align-items: center;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #ffffff;
+
+        a {
+            color: var(--accent);
             text-decoration: none;
-            font-size: 9.5px;
-            font-weight: 500;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 5px 9px;
-            border-radius: 0;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.2s ease;
         }
-        
-        .contact-link:hover {
-            background: rgba(255,255,255,0.25);
-            border-color: rgba(255,255,255,0.4);
-            transform: translateY(-1px);
+
+        .shell {
+            width: min(76rem, calc(100% - 2rem));
+            margin: 1.5rem auto 2.5rem;
         }
-        
-        .contact-link svg {
-            width: 14px;
-            height: 14px;
-            fill: currentColor;
-        }
-        
-        /* Content Area */
-        .content {
-            padding: 14px 18px;
-        }
-        
-        /* Section Headers */
-        .section {
-            margin-bottom: 12px;
-        }
-        
-        h2 {
-            font-size: 15px;
-            color: #0f172a;
-            margin-bottom: 8px;
-            font-weight: 800;
-            letter-spacing: -0.4px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        h2::before {
-            content: '';
-            width: 4px;
-            height: 14px;
-            background: linear-gradient(135deg, #0ea5e9, #2563eb);
-            border-radius: 0;
-        }
-        
-        /* Experience Cards */
-        .experience-card {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.6) 0%, rgba(241, 245, 249, 0.6) 100%);
-            border-left: 3px solid #0ea5e9;
-            padding: 8px 10px;
-            margin-bottom: 8px;
-            border-radius: 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+        .resume {
+            background: var(--paper);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
             position: relative;
+            overflow: hidden;
         }
-        
-        .experience-card:nth-child(2n) {
-            border-left-color: #2563eb;
+
+        .resume::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(140deg, rgba(255, 255, 255, 0.25), transparent 28rem),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent);
+            pointer-events: none;
         }
-        
-        .experience-card:nth-child(3n) {
-            border-left-color: #06b6d4;
+
+        .hero,
+        .content,
+        .footer {
+            position: relative;
+            z-index: 1;
         }
-        
-        h3 {
-            font-size: 12px;
-            color: #0f172a;
-            margin-bottom: 2px;
-            font-weight: 700;
-            letter-spacing: -0.2px;
+
+        .hero {
+            padding: 2.2rem 2.4rem 1.8rem;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.24));
+            border-bottom: 1px solid var(--line-strong);
         }
-        
-        .position {
-            font-size: 10px;
-            color: #64748b;
-            margin-bottom: 4px;
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.25rem 0;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.79rem;
             font-weight: 600;
-            font-style: italic;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 2px dashed rgba(66, 103, 172, 0.35);
         }
-        
-        ul {
-            margin-left: 12px;
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.65fr) minmax(16rem, 0.95fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .title {
+            margin: 0 0 0.4rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+        }
+
+        .lede {
+            max-width: 46rem;
+            margin: 1rem 0 1.15rem;
+            color: var(--muted);
+            font-size: 1.02rem;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.28rem 0.62rem;
+            background: rgba(255, 255, 255, 0.52);
+            border: 1px solid rgba(66, 103, 172, 0.15);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.82rem;
+        }
+
+        .equation-note {
+            margin: 0;
+            color: var(--accent);
+            font-family: var(--scribble);
+            font-size: 1.55rem;
+            transform: rotate(-2deg);
+        }
+
+        .contact-block {
+            padding-top: 0.4rem;
+        }
+
+        .contact-block h2,
+        .section h2 {
+            margin: 0 0 0.85rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .contact-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .contact-label {
+            display: block;
+            margin-bottom: 0.15rem;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.9fr);
+            gap: 2rem;
+            padding: 1.4rem 2.4rem 1.9rem;
+        }
+
+        .main-column,
+        .side-column {
+            display: grid;
+            gap: 1.5rem;
+            align-content: start;
+        }
+
+        .section {
+            padding-top: 1.1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .section:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .section p {
+            margin: 0;
+        }
+
+        .section-lede {
+            color: var(--muted);
+        }
+
+        .highlight-row {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .highlight {
+            padding-top: 0.75rem;
+            border-top: 3px solid var(--line-strong);
+        }
+
+        .highlight:nth-child(1) {
+            border-top-color: rgba(66, 103, 172, 0.5);
+        }
+
+        .highlight:nth-child(2) {
+            border-top-color: rgba(239, 185, 168, 0.7);
+        }
+
+        .highlight:nth-child(3) {
+            border-top-color: rgba(113, 173, 158, 0.7);
+        }
+
+        .highlight strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .highlight span {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 1.2rem;
+            border-left: 2px solid rgba(66, 103, 172, 0.22);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -0.36rem;
+            top: 0.35rem;
+            width: 0.65rem;
+            height: 0.65rem;
+            border-radius: 50%;
+            background: var(--paper-strong);
+            border: 2px solid var(--accent);
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
+        }
+
+        .meta-row h3 {
+            margin: 0;
+            font-size: 1.03rem;
+        }
+
+        .period {
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        .subline {
+            margin: 0 0 0.45rem;
+            color: var(--muted);
+        }
+
+        .bullet-list,
+        .pub-list,
+        .thread-list,
+        .dev-list,
+        .edu-list {
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
-        
-        li {
-            font-size: 10px;
-            margin-bottom: 2px;
-            line-height: 1.4;
-            color: #475569;
+
+        .bullet-list li,
+        .pub-list li,
+        .thread-list li,
+        .dev-list li,
+        .edu-list li {
             position: relative;
-            padding-left: 10px;
+            padding-left: 1rem;
+            color: var(--muted);
         }
-        
-        li::before {
-            content: '▸';
+
+        .bullet-list li + li,
+        .pub-list li + li,
+        .thread-list li + li,
+        .dev-list li + li,
+        .edu-list li + li {
+            margin-top: 0.45rem;
+        }
+
+        .bullet-list li::before,
+        .pub-list li::before,
+        .thread-list li::before,
+        .dev-list li::before,
+        .edu-list li::before {
+            content: "•";
             position: absolute;
             left: 0;
-            color: #0ea5e9;
+            top: 0;
+            color: var(--accent);
             font-weight: 700;
         }
-        
-        strong {
-            color: #2563eb;
-            font-weight: 700;
+
+        .project-list {
+            display: grid;
+            gap: 0.95rem;
         }
-        
-        a {
-            color: #0ea5e9;
-            text-decoration: none;
+
+        .project-row {
+            display: grid;
+            grid-template-columns: minmax(7rem, 8.5rem) minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+            padding-bottom: 0.95rem;
+            border-bottom: 1px dashed rgba(33, 57, 92, 0.18);
+        }
+
+        .project-row:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .project-years {
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.85rem;
             font-weight: 600;
-            border-bottom: 1px dotted #0ea5e9;
-            transition: all 0.2s;
         }
-        
-        /* Skills Grid - Bold Cards */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-        
-        .skill-card {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.85) 0%, rgba(37, 99, 235, 0.85) 100%);
-            padding: 8px;
-            border-radius: 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
-        }
-        
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-        }
-        
-        .skill-card h4 {
-            font-size: 11px;
-            margin-bottom: 3px;
-            font-weight: 800;
-            letter-spacing: -0.1px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .skill-card p {
-            font-size: 9.5px;
-            line-height: 1.3;
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
-            font-weight: 500;
-        }
-        
-        /* Education with Icons */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 5px;
-            margin-bottom: 10px;
-        }
-        
-        .education-item {
-            font-size: 9.5px;
-            padding: 5px 8px;
-            background: linear-gradient(135deg, rgba(250, 250, 250, 0.5) 0%, rgba(245, 245, 245, 0.5) 100%);
-            border-radius: 0;
-            border: 1px solid rgba(229, 231, 235, 0.6);
-            line-height: 1.3;
-        }
-        
-        .education-item strong {
+
+        .project-body strong {
             display: block;
-            color: #0ea5e9;
-            font-size: 10px;
-            margin-bottom: 1px;
+            margin-bottom: 0.18rem;
+            font-size: 1rem;
         }
-        
-        /* Publications - Compact List */
-        .publications {
-            background: linear-gradient(135deg, rgba(239, 246, 255, 0.5) 0%, rgba(219, 234, 254, 0.5) 100%);
-            padding: 10px;
-            border-radius: 0;
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            margin-bottom: 10px;
+
+        .project-body p {
+            color: var(--muted);
         }
-        
-        .publications h2 {
-            font-size: 13px;
-            margin-bottom: 6px;
-            color: #1e40af;
+
+        .pub-list a {
+            border-bottom: 1px solid rgba(66, 103, 172, 0.24);
         }
-        
-        .publications h2::before {
-            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+
+        .tool-list {
+            margin: 0;
+            display: grid;
+            gap: 0.75rem;
         }
-        
-        .pub-list {
-            font-size: 9px;
-            line-height: 1.4;
+
+        .tool-list div {
+            display: grid;
+            gap: 0.15rem;
         }
-        
-        .pub-list li {
-            margin-bottom: 2px;
-            color: #1e3a8a;
-            padding-left: 8px;
-        }
-        
-        .pub-list li::before {
-            content: ' • ';
-            color: #0ea5e9;
-        }
-        
-        /* Footer with Contact */
-        .footer {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%);
-            padding: 10px 18px;
-            color: rgba(255,255,255,0.95);
-            font-size: 9px;
-            line-height: 1.5;
-        }
-        
-        .footer strong {
-            color: #bae6fd;
-            font-weight: 700;
-        }
-        
-        .affiliations {
-            margin-top: 4px;
-            opacity: 0.8;
-        }
-        
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-left: 4px solid #3b82f6;
-            padding: 8px 10px;
-            margin: 8px 0;
-            border-radius: 0;
-        }
-        
-        .highlight-box p {
-            font-size: 10px;
-            color: #1e40af;
+
+        .tool-list dt {
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.81rem;
             font-weight: 600;
-            line-height: 1.4;
-        }
-        
-        /* Tech Tags */
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-top: 4px;
-        }
-        
-        .tech-tag {
-            background: rgba(14, 165, 233, 0.1);
-            color: #0ea5e9;
-            padding: 2px 6px;
-            border-radius: 0;
-            font-size: 9px;
-            font-weight: 700;
-            border: 1px solid rgba(14, 165, 233, 0.2);
-        }
-        
-        @media print {
-            body {
-                max-width: 100%;
-            }
-            
-            .page {
-                page-break-after: always;
-            }
-        }
-        
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px 40px 20px;
-                min-height: auto;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .tagline {
-                font-size: 14px;
-            }
-            
-            .hero-image {
-                top: 10px;
-                right: 10px;
-                max-height: 100px;
-                width: auto;
-            }
-            
-            .hero-badges {
-                gap: 5px;
-                justify-content: flex-start;
-            }
-            
-            .badge {
-                font-size: 10px;
-                padding: 3px 8px;
-                white-space: nowrap;
-            }
-            
-            .hero-contact {
-                flex-direction: column;
-                gap: 8px;
-                align-items: stretch;
-            }
-            
-            .contact-link {
-                font-size: 12px;
-                padding: 8px 12px;
-                justify-content: center;
-            }
-            
-            .contact-link svg {
-                width: 16px;
-                height: 16px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .experience-card h3 {
-                font-size: 20px;
-            }
-            
-            .timeline-item h3 {
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 15px 30px 15px;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .tagline {
-                font-size: 12px;
-            }
-            
-            .hero-image {
-                max-height: 60px;
-                top: 8px;
-                right: 8px;
-            }
-            
-            .badge {
-                font-size: 9px;
-                padding: 3px 6px;
-            }
-            
-            .contact-link {
-                font-size: 11px;
-                padding: 6px 10px;
-            }
-        }
-        /* Dark pastel theme (override legacy light palette) */
-        :root{
-            --bg: #0b1220;
-            --text: #e5e7eb;
-            --muted: rgba(229, 231, 235, 0.72);
-            --panel: rgba(255, 255, 255, 0.06);
-            --panel-2: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.12);
-            --accent: #7dd3fc;  /* sky-300 */
-            --accent2: #c4b5fd; /* violet-300 */
-            --accent3: #6ee7b7; /* green-300 */
+            text-transform: uppercase;
         }
 
-        body{
-            background:
-                radial-gradient(circle at 12% 0%, rgba(125, 211, 252, 0.18) 0%, transparent 45%),
-                radial-gradient(circle at 90% 20%, rgba(196, 181, 253, 0.16) 0%, transparent 40%),
-                radial-gradient(circle at 30% 95%, rgba(110, 231, 183, 0.12) 0%, transparent 45%),
-                var(--bg);
-            color: var(--text);
-        }
-
-        .page{
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-        }
-
-        .hero{
-            background:
-                radial-gradient(circle at 20% 10%, rgba(125, 211, 252, 0.38) 0%, transparent 55%),
-                radial-gradient(circle at 70% 0%, rgba(196, 181, 253, 0.32) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(110, 231, 183, 0.22) 0%, transparent 55%),
-                linear-gradient(135deg, #071826 0%, #1f1147 55%, #06241f 100%);
-        }
-
-        .hero::before{
-            background: radial-gradient(circle, rgba(125, 211, 252, 0.28) 0%, transparent 70%);
-        }
-
-        .hero::after{
-            background: radial-gradient(circle, rgba(196, 181, 253, 0.22) 0%, transparent 70%);
-        }
-
-        h1{
-            text-shadow: 0 2px 14px rgba(0,0,0,0.35);
-        }
-
-        .badge{
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .contact-link{
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-        }
-
-        .contact-link:hover{
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(125, 211, 252, 0.35);
-        }
-
-        h2{
-            color: var(--text);
-        }
-
-        h2::before{
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-        }
-
-        .experience-card{
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border-left: 3px solid var(--accent);
-            border-radius: 6px;
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 24px rgba(0,0,0,0.22);
-        }
-
-        .experience-card:nth-child(2n){
-            border-left-color: var(--accent2);
-        }
-
-        .experience-card:nth-child(3n){
-            border-left-color: var(--accent3);
-        }
-
-        h3{
-            color: var(--text);
-        }
-
-        .position{
+        .tool-list dd {
+            margin: 0;
             color: var(--muted);
         }
 
-        li{
+        .side-note {
             color: var(--muted);
         }
 
-        li::before{
-            color: var(--accent);
-        }
-
-        strong{
-            color: var(--accent2);
-        }
-
-        a{
-            color: var(--accent);
-            border-bottom: 1px dotted rgba(125, 211, 252, 0.75);
-        }
-
-        .skill-card{
-            background: linear-gradient(135deg, rgba(125, 211, 252, 0.22) 0%, rgba(196, 181, 253, 0.18) 45%, rgba(110, 231, 183, 0.16) 100%);
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            color: var(--text);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-        }
-
-        .skill-card::before{
-            background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
-        }
-
-        .education-item{
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 6px;
-        }
-
-        .education-item strong{
-            color: var(--accent);
-        }
-
-        .publications{
-            background: linear-gradient(135deg, rgba(196, 181, 253, 0.14) 0%, rgba(125, 211, 252, 0.10) 45%, rgba(110, 231, 183, 0.08) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: 6px;
-        }
-
-        .publications h2{
-            color: var(--accent2);
-        }
-
-        .publications h2::before{
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-        }
-
-        .pub-list li{
+        .footer {
+            padding: 0 2.4rem 1.6rem;
             color: var(--muted);
+            font-size: 0.9rem;
         }
 
-        .pub-list li::before{
-            color: var(--accent);
-        }
-
-        .footer{
-            background: linear-gradient(135deg, rgba(196, 181, 253, 0.26) 0%, rgba(125, 211, 252, 0.22) 45%, rgba(110, 231, 183, 0.18) 100%);
-            color: rgba(255, 255, 255, 0.92);
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .footer strong{
-            color: rgba(165, 243, 252, 0.95);
-        }
-
-        .affiliations{
-            opacity: 0.88;
-        }
-
-        .highlight-box{
-            border-left: 4px solid rgba(125, 211, 252, 0.85);
-            background: linear-gradient(135deg, rgba(125, 211, 252, 0.10) 0%, rgba(196, 181, 253, 0.08) 100%);
-        }
-
-        .highlight-box p{
+        .footer strong {
             color: var(--text);
         }
 
-        .tech-tag{
-            background: rgba(125, 211, 252, 0.10);
-            color: var(--accent);
-            border: 1px solid rgba(125, 211, 252, 0.18);
-        }
-
-        @media (max-width: 768px){
-            .page{
-                border-radius: 0;
-                box-shadow: none;
+        @media (max-width: 920px) {
+            .hero-grid,
+            .content,
+            .highlight-row {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media print{
-            body{
-                background: #ffffff !important;
-                color: #111827 !important;
-            }
-
-            .page{
-                background: transparent !important;
-                border: none !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
+        @media (max-width: 680px) {
+            .shell {
+                width: min(100%, calc(100% - 1rem));
+                margin: 0.5rem auto 1rem;
             }
 
             .hero,
-            .footer,
-            .experience-card,
-            .skill-card,
-            .education-item,
-            .publications{
-                background: transparent !important;
-                box-shadow: none !important;
-                border-color: rgba(17, 24, 39, 0.25) !important;
+            .content,
+            .footer {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
 
-            .hero::before,
-            .hero::after{
-                display: none !important;
+            .project-row {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 1.15cm;
+        }
+
+        @media print {
+            body {
+                background: white;
             }
 
-            h1, h2, h3, .position, li, .pub-list li{
-                color: #111827 !important;
+            .shell {
+                width: 100%;
+                margin: 0;
             }
 
-            li::before,
-            .pub-list li::before{
-                color: #111827 !important;
+            .resume {
+                background: white;
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
             }
 
-            strong{
-                color: #0b5fff !important;
+            .resume::before {
+                display: none;
             }
 
-            a{
-                color: #0b5fff !important;
-                border-bottom: 1px solid rgba(17, 24, 39, 0.6) !important;
+            .hero {
+                background: white;
             }
 
-            .badge,
-            .contact-link{
-                background: transparent !important;
-                border-color: rgba(17, 24, 39, 0.35) !important;
-                color: #111827 !important;
-            }
-
-            .badge{
-                backdrop-filter: none !important;
+            .timeline-item,
+            .project-row,
+            .section,
+            .highlight {
+                break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <!-- Hero Header -->
-        <div class="hero">
-            <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank">
-                <img class="hero-image" src="qr_code_sheet.png" alt="Matrix Visualization">
-            <div class="hero-content">
-                <h1>Dr. Willi Schimmel</h1>
-                <div class="tagline"> • From Machine Tools to Mathematical Models • </div>
-                <div class="hero-badges">
-                    <span class="badge">HPC</span>
-                    <span class="badge">UNIX</span>
-                    <span class="badge">Fortran</span>
-                    <span class="badge">Python</span>
-                    <span class="badge">CUDA</span>
-                    <span class="badge">ML/AI</span>
+    <div class="shell">
+        <main class="resume">
+            <header class="hero">
+                <div class="eyebrow">Curriculum Vitae / research.log</div>
+                <div class="hero-grid">
+                    <div>
+                        <p class="title">Atmospheric Scientist • Scientific Programmer • Numerical Modeler</p>
+                        <h1>Dr. Willi Schimmel</h1>
+                        <p class="lede">
+                            From industrial mechanic to postdoctoral researcher and scientific programmer with background in atmospheric chemistry modeling, 3D spectral-bin microphysics, remote sensing with Doppler cloud radar and lidar, machine learning, numerical optimization, and graph theory. 
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Atmospheric Modeling</span>
+                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">Python / R / Fortran / Bash</span>
+                            <span class="tag">Linux / HPC / CUDA</span>
+                            <span class="tag">Neural Networks</span>
+                            <span class="tag">Multiphase Chemistry</span>
+                        </div>
+                        <p class="equation-note">f(research) = numerical models  +  measurements  +  efficient source code</p>
+                    </div>
+
+                    <aside class="contact-block">
+                        <h2>Contact</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <span class="contact-label">Email</span>
+                                <a class="contact-value" href="mailto:willischimmel@gmx.de">willischimmel@gmx.de</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">GitHub</span>
+                                <a class="contact-value" href="https://github.com/KarlJohnsonnn" target="_blank" rel="noreferrer">github.com/KarlJohnsonnn</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">LinkedIn</span>
+                                <a class="contact-value" href="https://www.linkedin.com/in/willi-schimmel-a21267163/" target="_blank" rel="noreferrer">linkedin.com/in/willi-schimmel-a21267163</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">Base</span>
+                                <span class="contact-value">Leipzig, Germany</span>
+                            </li>
+                        </ul>
+                    </aside>
                 </div>
-                
-                <div class="hero-contact">
-                    <a href="mailto:willischimmel@gmx.de" class="contact-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        willischimmel@gmx.de
-                    </a>
-                    
-                    <a href="https://github.com/KarlJohnsonnn" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                        </svg>
-                        KarlJohnsonnn
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/willi-schimmel-a21267163/" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                        </svg>
-                        Willi Schimmel
-                    </a>
+            </header>
+
+            <section class="content">
+                <div class="main-column">
+                    <section class="section">
+                        <h2>Snapshot</h2>
+                        <p class="section-lede">
+                            Build scientific software and numerical workflows across atmospheric modeling,
+                            remote sensing, and research data analysis. Work spans solver development,
+                            field-linked model validation, and machine-learning methods that reached operational use.
+                        </p>
+                        <div class="highlight-row">
+                            <div class="highlight">
+                                <strong>Numerics</strong>
+                                <span>Sparse systems, stiff ODEs, Rosenbrock methods, mechanism reduction.</span>
+                            </div>
+                            <div class="highlight">
+                                <strong>ML in Practice</strong>
+                                <span>Custom neural-network workflows for atmospheric classification and retrievals.</span>
+                            </div>
+                            <div class="highlight">
+                                <strong>Model + Data</strong>
+                                <span>Cloud simulations, remote sensing, fieldwork, and publication-grade analysis.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Experience</h2>
+                        <div class="timeline">
+                            <article class="timeline-item">
+                                <div class="meta-row">
+                                    <h3>Post-Doc Researcher</h3>
+                                    <span class="period">2023 - present</span>
+                                </div>
+                                <p class="subline">TROPOS Leipzig · Modeling of Atmospheric Processes</p>
+                                <ul class="bullet-list">
+                                    <li>Run cloud-seeding simulations with COSMO in large-eddy mode.</li>
+                                    <li>Work on 3D spectral-bin microphysics, cloud tracking, and radar forward operators.</li>
+                                    <li>Support ETH Zurich CLOUDLAB collaboration and field validation in Switzerland and Chile.</li>
+                                </ul>
+                            </article>
+
+                            <article class="timeline-item">
+                                <div class="meta-row">
+                                    <h3>PhD Researcher</h3>
+                                    <span class="period">2018 - 2022</span>
+                                </div>
+                                <p class="subline">Leipzig University · Remote Sensing and Arctic System / TROPOS collaboration</p>
+                                <ul class="bullet-list">
+                                    <li>Built custom PyTorch and CUDA model for hydrometeor classification in Doppler cloud-radar data.</li>
+                                    <li>Developed multi-sensor retrieval methods and data-processing workflows for atmospheric target classification.</li>
+                                    <li>Contributed code that moved beyond thesis stage into operational scientific processing.</li>
+                                </ul>
+                            </article>
+
+                            <article class="timeline-item">
+                                <div class="meta-row">
+                                    <h3>Research Assistant</h3>
+                                    <span class="period">2014 - 2018</span>
+                                </div>
+                                <p class="subline">TROPOS Leipzig · Modeling of Atmospheric Processes</p>
+                                <ul class="bullet-list">
+                                    <li>Developed numerical solver for atmospheric chemistry and combustion kinetics in Fortran.</li>
+                                    <li>Implemented sparse linear algebra and numerical optimization for stiff systems.</li>
+                                    <li>Applied graph-theoretical methods to reduce complex reaction networks while preserving relevant behavior.</li>
+                                </ul>
+                            </article>
+
+                            <article class="timeline-item">
+                                <div class="meta-row">
+                                    <h3>Industrial Mechanic</h3>
+                                    <span class="period">2006 - 2010</span>
+                                </div>
+                                <p class="subline">Sitec Industrietechnologie GmbH · Chemnitz</p>
+                                <ul class="bullet-list">
+                                    <li>Built and maintained customized assembly systems, laser machine tools, and industrial prototype setups.</li>
+                                    <li>Developed practical systems intuition that still shapes experimental and computational problem solving.</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Selected Projects</h2>
+                        <div class="project-list">
+                            <div class="project-row">
+                                <div class="project-years">2025</div>
+                                <div class="project-body">
+                                    <strong>Cminor v1.0</strong>
+                                    <p>Publication on chemical mechanism reduction and numerical efficiency in Geoscientific Model Development.</p>
+                                </div>
+                            </div>
+                            <div class="project-row">
+                                <div class="project-years">2023 - present</div>
+                                <div class="project-body">
+                                    <strong>Cloud-seeding modeling with COSMO</strong>
+                                    <p>Large-eddy simulations, forward operators, and validation against field observations in Switzerland and Chile.</p>
+                                </div>
+                            </div>
+                            <div class="project-row">
+                                <div class="project-years">2020 - 2022</div>
+                                <div class="project-body">
+                                    <strong>VoodooNet</strong>
+                                    <p>Neural-network framework for cloud radar applications, later integrated into the operational Cloudnet chain.</p>
+                                </div>
+                            </div>
+                            <div class="project-row">
+                                <div class="project-years">2014 - 2018</div>
+                                <div class="project-body">
+                                    <strong>Multiphase chemistry solver development</strong>
+                                    <p>Fortran-based solver work for atmospheric chemistry, sparse matrices, Rosenbrock methods, and reaction-network reduction.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Selected Publications</h2>
+                        <ul class="pub-list">
+                            <li><strong>Rug, L., Schimmel, W., et al.</strong> (2025). <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer">Cminor v1.0</a>. Geoscientific Model Development.</li>
+                            <li><strong>Merker, J., Schimmel, W.</strong> (2023). <a href="https://doi.org/10.1145/3613347.3613358" target="_blank" rel="noreferrer">Data model sensitivity</a>. ICoMS.</li>
+                            <li><strong>Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-5343-2022" target="_blank" rel="noreferrer">Cloud droplet detection with neural networks</a>. Atmospheric Measurement Techniques.</li>
+                            <li><strong>Kalesse-Los, H., Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-279-2022" target="_blank" rel="noreferrer">Cloud liquid detection</a>. Atmospheric Measurement Techniques.</li>
+                        </ul>
+                    </section>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Main Content -->
-        <div class="content">
-           
-            <!-- Work Experience -->
-            <div class="section">
-                <h2>Experience & Projects</h2>
-                
-                <div class="experience-card">
-                    <h3>Post-Doc Researcher</h3>
-                    <div class="position">Department: Modeling of Atmospheric Processes, TROPOS Leipzig </div>
-                    <ul>
-                        <li>Conducted <strong>hectometer-scale cloud seeding simulations</strong></li>
-                        <li>Numerical weather prediction model <strong>COSMO</strong> (former DWD forecast model) 
-                        <li><strong>3D spectral-bin microphysics</strong>, large eddy mode, <strong>cloud tracking</strong> and radar forward operators
-                        <li><strong>International fieldwork</strong> in Eriswil, Switzerland in collaboration with <strong>ETH Zurich CLOUDLAB</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>PhD Researcher</h3>
-                    <div class="position">Department: Remote Sensing and the Arctic System, Institute of Meteorology (LIM)</div>
-                    <ul>
-                        <li>Built <strong><a href="https://github.com/actris-cloudnet/voodoonet">custom ML model</a></strong> (PyTorch, CUDA) for  hydrometeor classification in Doppler cloud radar data</li>
-                        <li>Developed multi-sensor retrieval algorithms (atmospheric target classification)</li>
-                        <li>Deployment into the <a href="https://cloudnet.fmi.fi">Cloudnet</a> processing chain maintained by FMI</li>
-                        <li>Collaboration with <strong>TROPOS, FMI, Universidad de Magallanes in Punta Arenas, Chile</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>Research Assistant</h3>
-                    <div class="position">Department: Modeling of Atmospheric Processes, TROPOS Leipzig</div>
-                    <ul>
-                        <li>Developed Fortran 90 solver for <strong>atmospheric chemistry & combustion kinetics</strong></li>
-                        <li>Implemented <strong>sparse linear algebra</strong> & <strong>numerical optimization</strong> for stiff problems</li>
-                        <li>Applied <strong>graph theoretical algorithms</strong> to chemical networks for <strong>complexity reduction</strong></li>
-                    </ul>   
-                </div>
-                
-                <div class="experience-card">
-                    <h3>Industrial Mechanic</h3>
-                    <div class="position">Department: Assembly, Sitec Industrietechnologie GmbH, Chemnitz</div>
-                    <ul>
-                        <li>Manufactured <strong>customized assembly systems, laser machine tools, and electrolyzers</strong></li>
-                        <li>Installed and maintained systems at customer sites (e.g. automotive industry, Universities)</li>
-                        <li><strong>Manual and CNC machining</strong> (e.g. turning, milling, grinding, drilling)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Skills -->
-            <div class="section">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4>Programming</h4>
-                        <p>Python, Fortran, CUDA, UNIX, Linux, MacOS</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>ML/AI</h4>
-                        <p>PyTorch, custom models, production deployment, data processing & retrievals</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Specialties</h4>
-                        <p>High-Performance Computing, numerical optimization, sparse linear algebra</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Hands-on</h4>
-                        <p>Mechanical, pneumatics, robotics, fieldwork, remote sensing</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Education -->
-            <div class="section">
-                <h2>Education</h2>
-                <div class="education-grid">
-                    <div class="education-item">
-                        <strong>Post-Doc</strong>
-                        Atmospheric Science (3 years)<br>TROPOS Leipzig
-                    </div>
-                    <div class="education-item">
-                        <strong>PhD (Dr. rer. nat.)</strong>
-                        Atmospheric Science / Mathematics (4 years)<br>Leipzig University
-                    </div>  
-                    <div class="education-item">
-                        <strong>Master of Science (M.Sc.)</strong>
-                        Applied Mathematics (2.5 years)<br>HTWK Leipzig
-                    </div>
-                    <div class="education-item">
-                        <strong>Bachelor of Science (B.Sc.)</strong>
-                        Applied Mathematics (4.5 years)<br>HTWK Leipzig
-                    </div>
-                    <div class="education-item">
-                        <strong>A-Levels (Fachabitur Technik)</strong>
-                        Technology Specialization (1 year)<br>RHS Chemnitz
-                    </div>
-                    <div class="education-item">
-                        <strong>Apprenticeship (Facharbeiter)</strong>
-                        Industrial Mechanic (4 years)<br>Sitec Chemnitz
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Publications -->
-            <div class="publications">
-                <h2>Publications (Selection)</h2>
-                <ul class="pub-list">
-                    <li><strong>Rug, L., Schimmel, W., et al.</strong> (2025) — <a href="https://doi.org/10.5194/gmd-18-9039-2025" style="color:#1e40af;font-weight:700;border-bottom:1px solid #0ea5e9;">Cminor v1.0</a> | Geos. Model Development</li>
-                    <li><strong>Merker, J., Schimmel, W.</strong> (2023) — <a href="https://doi.org/10.1145/3613347.3613358" style="color:#1e40af;font-weight:700;border-bottom:1px solid #0ea5e9;">Data model sensitivity</a> | ICoMS '23</li>
-                    <li><strong>Schimmel, W., et al.</strong> (2022) — <a href="https://doi.org/10.5194/amt-15-5343-2022" style="color:#1e40af;font-weight:700;border-bottom:1px solid #0ea5e9;">Cloud droplets detection with ANN</a> | Atm. Meas. Tech.</li>
-                    <li><strong>Kalesse-Los, H., Schimmel, W., et al.</strong> (2022) — <a href="https://doi.org/10.5194/amt-15-279-2022" style="color:#1e40af;font-weight:700;border-bottom:1px solid #0ea5e9;">Cloud liquid detection</a> | Atm. Meas. Tech.</li>
-                    <li><strong>Vogl, T., et al. (Schimmel, W.)</strong> (2022) — <a href="https://doi.org/10.5194/amt-15-365-2022" style="color:#1e40af;font-weight:700;border-bottom:1px solid #0ea5e9;">Riming prediction with ANNs</a> | Atm. Meas. Tech.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            <strong>Affiliations:</strong> Leibniz Institute for Tropospheric Research (TROPOS) • Eidgenössische Technische Hochschule Zürich (ETH) • Leipzig University • Leipzig University for Applied Science (HTWK) • Sitec Industrietechnologie GmbH • Richard Hartmann School - Professional School Center for Technology III (RHS)
-        </div>
+
+                <aside class="side-column">
+                    <section class="section">
+                        <h2>Research Threads</h2>
+                        <ul class="thread-list">
+                            <li>Atmospheric modeling from process-level numerics to cloud-scale simulations.</li>
+                            <li>Machine learning for geoscience, from model design and GPU training to operational deployment.</li>
+                            <li>Multiphase chemistry and mechanism reduction as part of a broader numerical-modeling profile.</li>
+                            <li>Linux, HPC, and scientific Python/R/Fortran workflows for data-intensive research.</li>
+                            <li>Peer-reviewed publishing and international collaboration across modeling and observations.</li>
+                        </ul>
+                    </section>
+
+                    <section class="section">
+                        <h2>Toolkit</h2>
+                        <dl class="tool-list">
+                            <div>
+                                <dt>Programming</dt>
+                                <dd>Python, R, Fortran, Bash, CUDA, MATLAB, basic C/C++</dd>
+                            </div>
+                            <div>
+                                <dt>Scientific Computing</dt>
+                                <dd>Sparse linear algebra, stiff ODE systems, numerical optimization, HPC workflows</dd>
+                            </div>
+                            <div>
+                                <dt>Machine Learning</dt>
+                                <dd>PyTorch, GPU workflows, supervised model development, research deployment</dd>
+                            </div>
+                            <div>
+                                <dt>Data + Platforms</dt>
+                                <dd>GNU/Linux, macOS, Git, xarray, numpy, scipy, pandas, LaTeX</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="section">
+                        <h2>Education</h2>
+                        <ul class="edu-list">
+                            <li><strong>2022</strong> Dr. rer. nat. in Atmospheric Science / Mathematics, Leipzig University</li>
+                            <li><strong>2017</strong> M.Sc. in Applied Mathematics, HTWK Leipzig</li>
+                            <li><strong>2015</strong> B.Sc. in Applied Mathematics, HTWK Leipzig</li>
+                            <li><strong>2010</strong> Industrial Mechanic Apprenticeship, Sitec Chemnitz</li>
+                        </ul>
+                    </section>
+
+                    <section class="section">
+                        <h2>Development Lines</h2>
+                        <ul class="dev-list">
+                            <li><strong>Mechanic → modeler:</strong> practical systems intuition carried into research.</li>
+                            <li><strong>Numerics → software:</strong> solver development, HPC, and reproducible workflows.</li>
+                            <li><strong>ML + observations → operations:</strong> data-driven methods that reached community use.</li>
+                        </ul>
+                    </section>
+
+                    <section class="section">
+                        <h2>Research Style</h2>
+                        <p class="side-note">
+                            Strong fit for teams that combine detailed process understanding, computational rigor,
+                            and collaboration across observations, models, and data-driven methods.
+                        </p>
+                    </section>
+                </aside>
+            </section>
+
+            <footer class="footer">
+                <strong>Style note:</strong> lighter transparent palette, graph-paper background, mono labels,
+                and small handwritten equation cues for a restrained mathematical-nerdy look without comic overload.
+            </footer>
+        </main>
     </div>
 </body>
 </html>
