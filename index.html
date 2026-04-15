@@ -79,23 +79,23 @@
             border-bottom: 1px solid var(--line-strong);
         }
 
-        .hero-top {
+        .name-row {
             display: flex;
+            align-items: baseline;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             line-height: 1;
             letter-spacing: -0.05em;
+            white-space: nowrap;
         }
 
         .role {
-            margin: 0.5rem 0 0;
+            margin: 0.75rem 0 0.55rem;
             color: var(--accent);
             font-family: var(--mono);
             font-size: 0.88rem;
@@ -106,23 +106,32 @@
         .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem 1.6rem;
+            gap: 0.45rem;
             margin: 0;
             padding: 0;
             list-style: none;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
         }
 
         .contact-bar li {
             display: flex;
             align-items: center;
             gap: 0.4rem;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--line-strong);
+            background: rgba(255, 255, 255, 0.45);
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .contact-bar li:hover {
+            background: rgba(66, 103, 172, 0.07);
+            border-color: var(--accent);
         }
 
         .contact-bar .label {
             color: var(--muted);
             font-family: var(--mono);
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
@@ -429,18 +438,20 @@
         }
 
         .equation-note {
-            margin: 1rem 0 0;
+            margin: 0;
             color: var(--accent);
             font-family: var(--scribble);
-            font-size: 1.35rem;
-            transform: rotate(-1.5deg);
-            opacity: 0.65;
+            font-size: 1.05rem;
+            transform: rotate(-1.5deg) translateY(-0.45rem);
+            opacity: 0.55;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* ── Responsive ───────────────────────────────── */
 
         @media (max-width: 920px) {
-            .hero-top { flex-direction: column; }
+            .name-row { flex-wrap: wrap; }
             .arc-steps { grid-template-columns: 1fr; }
             .columns { grid-template-columns: 1fr; }
             .projects { grid-template-columns: 1fr; }
@@ -482,19 +493,18 @@
         <main class="resume">
 
             <header class="hero">
-                <div class="hero-top">
-                    <div>
-                        <h1>Dr. Willi Schimmel</h1>
-                        <p class="role">Atmospheric Scientist · Scientific Programmer · Mathematical Modeler</p>
-                    </div>
-                    <ul class="contact-bar">
+                <div class="name-row">
+                    <h1>Dr. Willi Schimmel</h1>
+                    <p class="equation-note">f(research) = numerical models + measurements + efficient source code</p>
+                </div>
+                <p class="role">Atmospheric Scientist · Scientific Programmer · Mathematical Modeler</p>
+                <ul class="contact-bar">
                         <li><span class="label">Email</span> <a href="mailto:willischimmel@gmx.de">willischimmel@gmx.de</a></li>
                         <li><span class="label">GitHub</span> <a href="https://github.com/KarlJohnsonnn" target="_blank" rel="noreferrer">KarlJohnsonnn</a></li>
                         <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/willi-schimmel-a21267163/" target="_blank" rel="noreferrer">Willi Schimmel</a></li>
                         <li><span class="label">ORCID</span> <a href="https://orcid.org/0000-0001-8428-6445" target="_blank" rel="noreferrer">0000-0001-8428-6445</a></li>
                         <li><span class="label">Base</span> <span>Leipzig, Germany</span></li>
                     </ul>
-                </div>
             </header>
 
             <section class="band">
@@ -658,7 +668,6 @@
                     <span class="tag">Numerical Methods</span>
                     <span class="tag">HPC / CUDA</span>
                 </div>
-                <p class="equation-note">f(research) = numerical models + measurements + efficient source code</p>
             </footer>
 
         </main>
