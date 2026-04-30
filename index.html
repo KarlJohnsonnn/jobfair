@@ -48,6 +48,62 @@
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
+        .resume a[data-preview] {
+            position: relative;
+        }
+
+        .resume a[data-preview]::after {
+            content: attr(data-preview);
+            position: absolute;
+            left: 0;
+            bottom: calc(100% + 0.55rem);
+            z-index: 20;
+            width: max-content;
+            max-width: min(22rem, 78vw);
+            padding: 0.55rem 0.7rem;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid var(--line-strong);
+            box-shadow: 0 14px 32px rgba(48, 72, 109, 0.16);
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            line-height: 1.35;
+            white-space: normal;
+            opacity: 0;
+            transform: translateY(0.25rem);
+            pointer-events: none;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+
+        .resume a[data-preview]::before {
+            content: "";
+            position: absolute;
+            left: 0.8rem;
+            bottom: calc(100% + 0.25rem);
+            z-index: 21;
+            width: 0.55rem;
+            height: 0.55rem;
+            background: rgba(255, 255, 255, 0.96);
+            border-right: 1px solid var(--line-strong);
+            border-bottom: 1px solid var(--line-strong);
+            transform: rotate(45deg);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .resume a[data-preview]:hover::after,
+        .resume a[data-preview]:focus-visible::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .resume a[data-preview]:hover::before,
+        .resume a[data-preview]:focus-visible::before {
+            opacity: 1;
+        }
+
         .shell {
             width: min(68rem, calc(100% - 2rem));
             margin: 2rem auto 3rem;
@@ -103,6 +159,13 @@
             letter-spacing: 0.04em;
         }
 
+        .hero-summary {
+            max-width: 50rem;
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-size: 1.02rem;
+        }
+
         .contact-bar {
             display: flex;
             flex-wrap: wrap;
@@ -140,6 +203,35 @@
         .contact-bar a,
         .contact-bar span:not(.label) {
             font-weight: 500;
+        }
+
+        .proof-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.55rem;
+            margin: 1.15rem 0 0;
+        }
+
+        .proof-item {
+            padding: 0.65rem 0.75rem;
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid var(--line-strong);
+        }
+
+        .proof-item strong {
+            display: block;
+            color: var(--text);
+            font-size: 0.82rem;
+        }
+
+        .proof-item span {
+            display: block;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         /* ── Sections (bands) ─────────────────────────── */
@@ -213,7 +305,47 @@
             font-size: 0.88rem;
         }
 
-        /* ── 02 Two-column layout ─────────────────────── */
+        /* ── Highlight cards ──────────────────────────── */
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .highlight-card {
+            padding: 1rem 1.15rem;
+            background: var(--paper-strong);
+            border-top: 3px solid var(--accent);
+        }
+
+        .highlight-card:nth-child(2) { border-top-color: var(--accent-warm); }
+        .highlight-card:nth-child(3) { border-top-color: var(--accent-mint); }
+
+        .highlight-card span {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ── 03 Two-column layout ─────────────────────── */
 
         .columns {
             display: grid;
@@ -223,12 +355,15 @@
 
         /* ── Timeline ─────────────────────────────────── */
 
-        .timeline { display: grid; gap: 1.2rem; }
+        .timeline { display: grid; gap: 1rem; }
 
         .timeline-item {
             position: relative;
-            padding-left: 1.3rem;
-            border-left: 2px solid rgba(66, 103, 172, 0.18);
+            padding: 0.95rem 1rem 0.95rem 1.3rem;
+            border-left: 2px solid rgba(66, 103, 172, 0.22);
+            background: rgba(255, 255, 255, 0.46);
+            border-radius: 0.45rem;
+            transition: border-color 0.15s ease, background 0.15s ease;
         }
 
         .timeline-item::before {
@@ -243,6 +378,11 @@
             border: 2.5px solid var(--accent);
         }
 
+        .timeline-item:hover {
+            border-left-color: rgba(66, 103, 172, 0.42);
+            background: rgba(255, 255, 255, 0.62);
+        }
+
         .meta-row {
             display: flex;
             justify-content: space-between;
@@ -252,20 +392,30 @@
             margin-bottom: 0.15rem;
         }
 
-        .meta-row h3 { margin: 0; font-size: 1rem; }
+        .meta-row h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
 
         .period {
             color: var(--accent);
             font-family: var(--mono);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 600;
             white-space: nowrap;
+            padding: 0.14rem 0.45rem;
+            border: 1px solid rgba(66, 103, 172, 0.18);
+            background: rgba(66, 103, 172, 0.08);
+            border-radius: 999px;
         }
 
         .subline {
-            margin: 0 0 0.4rem;
+            margin: 0 0 0.48rem;
             color: var(--muted);
-            font-size: 0.92rem;
+            font-size: 0.88rem;
+            font-family: var(--mono);
         }
 
         .bullets {
@@ -281,7 +431,7 @@
             font-size: 0.92rem;
         }
 
-        .bullets li + li { margin-top: 0.3rem; }
+        .bullets li + li { margin-top: 0.35rem; }
 
         .bullets li::before {
             content: "–";
@@ -318,17 +468,26 @@
         }
 
         .edu-list li {
+            display: grid;
+            grid-template-columns: 3.6rem minmax(0, 1fr);
+            column-gap: 0.55rem;
+            align-items: start;
             font-size: 0.9rem;
             color: var(--muted);
         }
 
         .edu-list li strong {
-            display: inline-block;
-            min-width: 3rem;
+            display: block;
             color: var(--text);
             font-family: var(--mono);
             font-size: 0.8rem;
             font-weight: 600;
+        }
+
+        .edu-list li strong::before {
+            content: "• ";
+            color: var(--accent);
+            font-weight: 700;
         }
 
         .tool-grid {
@@ -391,7 +550,35 @@
             font-size: 0.88rem;
         }
 
-        /* ── 04 Publications ──────────────────────────── */
+        /* ── 05 Talks & Publications ──────────────────── */
+
+        .talk-card {
+            margin-bottom: 1.1rem;
+            padding: 1rem 1.15rem;
+            background: var(--accent-light);
+            border: 1px solid var(--line);
+        }
+
+        .talk-card .year {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .talk-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .talk-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
 
         .pub-list {
             margin: 0;
@@ -453,6 +640,8 @@
         @media (max-width: 920px) {
             .name-row { flex-wrap: wrap; }
             .arc-steps { grid-template-columns: 1fr; }
+            .proof-strip { grid-template-columns: repeat(2, 1fr); }
+            .highlight-grid { grid-template-columns: 1fr; }
             .columns { grid-template-columns: 1fr; }
             .projects { grid-template-columns: 1fr; }
         }
@@ -466,6 +655,7 @@
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
+            .proof-strip { grid-template-columns: 1fr; }
         }
 
         /* ── Print ────────────────────────────────────── */
@@ -474,6 +664,8 @@
 
         @media print {
             body { background: white; }
+            .resume a[data-preview]::before,
+            .resume a[data-preview]::after { display: none; }
             .shell { width: 100%; margin: 0; }
             .resume {
                 background: white;
@@ -482,7 +674,7 @@
                 backdrop-filter: none;
             }
             .resume::before { display: none; }
-            .band, .timeline-item, .project-card, .arc-step {
+            .band, .timeline-item, .project-card, .arc-step, .highlight-card, .talk-card {
                 break-inside: avoid;
             }
         }
@@ -495,16 +687,28 @@
             <header class="hero">
                 <div class="name-row">
                     <h1>Dr. Willi Schimmel</h1>
-                    <p class="equation-note">f(research) = numerical models + measurements + efficient source code</p>
+                    <!-- <p class="equation-note">f(research) = data acquisition + mathematical models + </p> -->
                 </div>
-                <p class="role">Atmospheric Scientist · Scientific Programmer · Mathematical Modeler</p>
+                <p class="role">Mathematical Modelling · Atmospheric Science · Scientific Programming · Data Science</p>
+                <p class="hero-summary">
+                    I connect atmospheric process knowledge with numerical models, machine-learning workflows,
+                    field observations, and pragmatic software development.
+                </p>
                 <ul class="contact-bar">
-                        <li><span class="label">Email</span> <a href="mailto:willischimmel@gmx.de">willischimmel@gmx.de</a></li>
-                        <li><span class="label">GitHub</span> <a href="https://github.com/KarlJohnsonnn" target="_blank" rel="noreferrer">KarlJohnsonnn</a></li>
-                        <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/willi-schimmel-a21267163/" target="_blank" rel="noreferrer">Willi Schimmel</a></li>
-                        <li><span class="label">ORCID</span> <a href="https://orcid.org/0000-0001-8428-6445" target="_blank" rel="noreferrer">0000-0001-8428-6445</a></li>
+                        <li><span class="label">Email</span> <a href="mailto:willischimmel@gmx.de" data-preview="Send an email to Willi Schimmel.">willischimmel@gmx.de</a></li>
+                        <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/willi-schimmel-a21267163/" target="_blank" rel="noreferrer" data-preview="LinkedIn profile with professional background and network.">Willi Schimmel</a></li>
+                        <li><span class="label">GitHub</span> <a href="https://github.com/KarlJohnsonnn" target="_blank" rel="noreferrer" data-preview="GitHub profile with code and scientific programming work.">KarlJohnsonnn</a></li>
+                        <li><span class="label">ORCID</span> <a href="https://orcid.org/0000-0001-8428-6445" target="_blank" rel="noreferrer" data-preview="ORCID researcher profile and publication identity.">0000-0001-8428-6445</a></li>
                         <li><span class="label">Base</span> <span>Leipzig, Germany</span></li>
                     </ul>
+                <div class="proof-strip" aria-label="Selected profile highlights">
+                    <div class="proof-item"><span>Operational ML</span><strong><a href="https://cloudnet.fmi.fi/search/visualizations?dateFrom=2023-02-02&dateTo=2023-02-02&site=eriswil&experimental=true&product=classification-voodoo,classification&variable=classification-target_classification,classification-voodoo-target_classification" target="_blank" rel="noreferrer" data-preview="Cloudnet example comparing operational classification with VoodooNet output.">Cloudnet integration</a></strong></div>
+              
+                    <div class="proof-item"><span>Invited Talk</span><strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 invited/solicited talk abstract and conference metadata.">EGU 2025</a></strong></div>
+                    <div class="proof-item"><span>Numerics</span><strong><a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer" data-preview="GMD paper on Cminor v1.0 and chemical mechanism reduction.">HPC &amp; sparse solvers</a></strong></div>
+                    <div class="proof-item"><span>Field Work</span><strong>Chile &amp; Switzerland</strong></div>
+                    <div class="proof-item"><span>Coordination</span><strong>Research projects</strong></div>
+                </div>
             </header>
 
             <section class="band">
@@ -513,22 +717,23 @@
                     <h2>The Arc</h2>
                 </div>
                 <p class="arc-text">
-                    From industrial mechanic to postdoctoral researcher — a non-linear path through
-                    applied mathematics, numerical solver development, machine learning, and atmospheric
-                    field science. Each stage added a layer that shapes how I build software and
-                    approach research problems today.
+                    From industrial mechanic to postdoctoral researcher: a non-linear path through
+                    applied mathematics, numerical weather-prediction development, custom machine-learning
+                    models, and atmospheric field data. Each stage added a practical layer to how I solve
+                    research and software problems, and over the years I have also kept improving how I
+                    plan, coordinate, and manage projects.
                 </p>
                 <div class="arc-steps">
                     <div class="arc-step">
-                        <strong>Mechanic → Modeler</strong>
+                        <strong>Industrial Mechanic → Abitur → Applied Mathematics</strong>
                         <span>Hands-on systems intuition carried from the factory floor into scientific computing and solver design.</span>
                     </div>
                     <div class="arc-step">
-                        <strong>Numerics → Software</strong>
-                        <span>Fortran solvers, sparse linear algebra, HPC workflows, and reproducible research code.</span>
+                        <strong>Master Student → Fast Numerical Solvers</strong>
+                        <span>Fortran solvers, sparse linear algebra, and HPC workflows for atmospheric multiphase chemistry.</span>
                     </div>
                     <div class="arc-step">
-                        <strong>ML + Observations → Operations</strong>
+                        <strong>PhD Candidate → Machine Learning Models</strong>
                         <span>Custom neural-network models that moved from thesis work into community-wide operational use.</span>
                     </div>
                 </div>
@@ -537,6 +742,37 @@
             <section class="band">
                 <div class="band-header">
                     <span class="band-number">02</span>
+                    <h2>Selected Highlights</h2>
+                </div>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <span>Operational Impact</span>
+                        <strong>Research code used beyond the thesis</strong>
+                        <p>
+                            <a href="https://github.com/actris-cloudnet/voodoonet/tree/v0.1.7" target="_blank" rel="noreferrer" data-preview="VoodooNet source code used for cloud-radar target classification.">VoodooNet</a>
+                            moved from a PhD prototype into the operational
+                            <a href="https://github.com/actris-cloudnet/cloudnetpy" target="_blank" rel="noreferrer" data-preview="CloudnetPy processing chain for atmospheric remote-sensing products.">Cloudnet processing chain</a>
+                            maintained by 
+                            <a href="https://en.ilmatieteenlaitos.fi/" target="_blank" rel="noreferrer" data-preview="Finnish Meteorological Institute, maintainer of operational Cloudnet processing.">FMI</a>.
+                        </p>
+                        
+                    </div>
+                    <div class="highlight-card">
+                        <span>Scientific Visibility</span>
+                        <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 invited/solicited talk abstract and conference metadata.">Invited EGU 2025 contribution</a></strong>
+                        <p>Presented cloud-microphysics perturbation work combining remote sensing, in-situ observations, and COSMO-SPECS modelling.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span>Research Coordination</span>
+                        <strong>Better structure for complex work</strong>
+                        <p>Field-campaign experience and proposal-writing training support how I plan, communicate, and finish collaborative research software.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="band">
+                <div class="band-header">
+                    <span class="band-number">03</span>
                     <h2>Experience</h2>
                 </div>
                 <div class="columns">
@@ -548,9 +784,9 @@
                             </div>
                             <p class="subline">TROPOS Leipzig · Modeling of Atmospheric Processes</p>
                             <ul class="bullets">
-                                <li>Cloud-seeding simulations with COSMO in large-eddy mode.</li>
-                                <li>3D spectral-bin microphysics, cloud tracking, and radar forward operators.</li>
-                                <li>ETH Zurich CLOUDLAB collaboration; field validation in Switzerland and Chile.</li>
+                                <li>Cloud-seeding simulations with COSMO-SPECS in hectometer-scale large-eddy mode.</li>
+                                <li>3D spectral-bin microphysics, cloud tracking, Lagrangian analysis, and radar forward operators.</li>
+                                <li>ETH Zurich CLOUDLAB collaboration; validation with field observations in Switzerland and Chile.</li>
                             </ul>
                         </article>
 
@@ -608,9 +844,10 @@
                             <h3>Toolkit</h3>
                             <dl class="tool-grid">
                                 <div><dt>Languages</dt><dd>Python, R, Fortran, Bash, CUDA, MATLAB, basic C/C++</dd></div>
-                                <div><dt>Numerics</dt><dd>Sparse solvers, stiff ODEs, optimization, HPC</dd></div>
-                                <div><dt>ML</dt><dd>PyTorch, GPU workflows, supervised learning, deployment</dd></div>
+                                <div><dt>Numerics</dt><dd>Sparse linear algebra, numerical optimization, fast numerical solvers, stiff ODE systems, HPC, parallel computing</dd></div>
+                                <div><dt>ML and AI</dt><dd>PyTorch, GPU workflows, supervised learning, deployment</dd></div>
                                 <div><dt>Platforms</dt><dd>GNU/Linux, macOS, Git, xarray, numpy, scipy, pandas, LaTeX</dd></div>
+                                <div><dt>Research Coordination</dt><dd>Field campaigns, proposal writing, collaborative model validation, scientific communication</dd></div>
                             </dl>
                         </div>
                     </aside>
@@ -619,43 +856,48 @@
 
             <section class="band">
                 <div class="band-header">
-                    <span class="band-number">03</span>
+                    <span class="band-number">04</span>
                     <h2>Selected Projects</h2>
                 </div>
                 <div class="projects">
                     <div class="project-card">
                         <span class="year">2025</span>
                         <strong>Cminor v1.0</strong>
-                        <p>Chemical mechanism reduction and numerical efficiency — published in Geoscientific Model Development.</p>
+                        <p>Advanced graph-based reduction for large multiphase chemical systems, supporting faster simulations and a GMD publication.</p>
                     </div>
                     <div class="project-card">
                         <span class="year">2023 – present</span>
                         <strong>Cloud-seeding modeling (COSMO)</strong>
-                        <p>Large-eddy simulations, forward operators, and validation against field observations in Switzerland and Chile.</p>
+                        <p>Coordinates LES ensembles, forward operators, and field validation to compare modeled and observed cloud responses.</p>
                     </div>
                     <div class="project-card">
                         <span class="year">2020 – 2022</span>
                         <strong>VoodooNet</strong>
-                        <p>Neural-network framework for cloud radar, later integrated into the operational Cloudnet chain.</p>
+                        <p>Built PyTorch/CUDA cloud-radar classifier that turned thesis research into operational atmospheric data processing.</p>
                     </div>
                     <div class="project-card">
                         <span class="year">2014 – 2018</span>
                         <strong>Multiphase Chemistry Solver</strong>
-                        <p>Fortran-based atmospheric chemistry solver — sparse matrices, Rosenbrock methods, and network reduction.</p>
+                        <p>Developed Fortran solver workflows for stiff chemistry mechanisms using sparse matrices, Rosenbrock methods, and HPC practice.</p>
                     </div>
                 </div>
             </section>
 
             <section class="band">
                 <div class="band-header">
-                    <span class="band-number">04</span>
-                    <h2>Selected Publications</h2>
+                    <span class="band-number">05</span>
+                    <h2>Talks &amp; Publications</h2>
+                </div>
+                <div class="talk-card">
+                    <span class="year">EGU General Assembly 2025 · Invited / solicited talk</span>
+                    <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 abstract: combined remote sensing, in-situ data, and COSMO-SPECS modelling.">Combined Remote-Sensing, In-Situ and Modelling of Cloud Microphysical Perturbations in Supercooled Stratus Clouds</a></strong>
+                    <p>Opened Atmospheric Sciences sessions with results from CLOUDLAB/PolarCAP work on aerosol-cloud interactions, field data, and COSMO-SPECS ensembles.</p>
                 </div>
                 <ul class="pub-list">
-                    <li><strong>Rug, L., Schimmel, W., et al.</strong> (2025). <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer">Cminor v1.0</a>. Geoscientific Model Development.</li>
-                    <li><strong>Merker, J., Schimmel, W.</strong> (2023). <a href="https://doi.org/10.1145/3613347.3613358" target="_blank" rel="noreferrer">Data model sensitivity</a>. ICoMS.</li>
-                    <li><strong>Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-5343-2022" target="_blank" rel="noreferrer">Cloud droplet detection with neural networks</a>. Atmospheric Measurement Techniques.</li>
-                    <li><strong>Kalesse-Los, H., Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-279-2022" target="_blank" rel="noreferrer">Cloud liquid detection</a>. Atmospheric Measurement Techniques.</li>
+                    <li><strong>Rug, L., Schimmel, W., et al.</strong> (2025). <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer" data-preview="Geoscientific Model Development paper on Cminor v1.0.">Cminor v1.0</a>. Geoscientific Model Development.</li>
+                    <li><strong>Merker, J., Schimmel, W.</strong> (2023). <a href="https://doi.org/10.1145/3613347.3613358" target="_blank" rel="noreferrer" data-preview="ICoMS paper on data-model sensitivity and label perturbations.">Data model sensitivity</a>. ICoMS.</li>
+                    <li><strong>Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-5343-2022" target="_blank" rel="noreferrer" data-preview="AMT paper on cloud droplet detection with neural-network methods.">Cloud droplet detection with neural networks</a>. Atmospheric Measurement Techniques.</li>
+                    <li><strong>Kalesse-Los, H., Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-279-2022" target="_blank" rel="noreferrer" data-preview="AMT paper on cloud liquid detection in remote-sensing data.">Cloud liquid detection</a>. Atmospheric Measurement Techniques.</li>
                 </ul>
             </section>
 
@@ -667,6 +909,10 @@
                     <span class="tag">Multiphase Chemistry</span>
                     <span class="tag">Numerical Methods</span>
                     <span class="tag">HPC / CUDA</span>
+                    <span class="tag">Project Management</span>
+                    <span class="tag">Scientific Communication</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Machine Learning and Artificial Intelligence</span>
                 </div>
             </footer>
 
