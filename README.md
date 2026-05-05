@@ -31,6 +31,3 @@ This repository contains my professional profile and a short CV, showcasing my e
 © 2026 Dr. Willi Schimmel. All rights reserved.
 
 ---
-
-*Last updated: November 2025*
-
