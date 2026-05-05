@@ -28,7 +28,7 @@ This repository contains my professional profile and a short CV, showcasing my e
 
 ## Copyright & License
 
-© 2025 Dr. Willi Schimmel. All rights reserved.
+© 2026 Dr. Willi Schimmel. All rights reserved.
 
 ---
 
