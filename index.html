@@ -568,6 +568,33 @@
             font-weight: 600;
         }
 
+        .talk-card--with-video .talk-video-thumb {
+            display: block;
+            max-width: min(22rem, 100%);
+            margin: 0 0 0.75rem;
+            border-radius: 0.4rem;
+            overflow: hidden;
+            border: 1px solid var(--line-strong);
+            box-shadow: 0 4px 16px rgba(48, 72, 109, 0.1);
+            line-height: 0;
+        }
+
+        .talk-card--with-video .talk-video-thumb img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+
+        .talk-card--with-video .talk-video-thumb:hover img {
+            opacity: 0.93;
+        }
+
+        .talk-card--with-video .talk-video-thumb:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         .talk-card strong {
             display: block;
             margin-bottom: 0.25rem;
@@ -704,7 +731,7 @@
                 <div class="proof-strip" aria-label="Selected profile highlights">
                     <div class="proof-item"><span>Operational ML</span><strong><a href="https://cloudnet.fmi.fi/search/visualizations?dateFrom=2023-02-02&dateTo=2023-02-02&site=eriswil&experimental=true&product=classification-voodoo,classification&variable=classification-target_classification,classification-voodoo-target_classification" target="_blank" rel="noreferrer" data-preview="Cloudnet example comparing operational classification with VoodooNet output.">Cloudnet integration</a></strong></div>
               
-                    <div class="proof-item"><span>Invited Talk</span><strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 invited/solicited talk abstract and conference metadata.">EGU 2025</a></strong></div>
+                    <div class="proof-item"><span>Invited Talk</span><strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 Session AS1.14; abstract doi:10.5194/egusphere-egu25-12739.">EGU 2025</a></strong></div>
                     <div class="proof-item"><span>Numerics</span><strong><a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer" data-preview="GMD paper on Cminor v1.0 and chemical mechanism reduction.">HPC &amp; sparse solvers</a></strong></div>
                     <div class="proof-item"><span>Field Work</span><strong>Chile &amp; Switzerland</strong></div>
                     <div class="proof-item"><span>Coordination</span><strong>Research projects</strong></div>
@@ -759,8 +786,8 @@
                     </div>
                     <div class="highlight-card">
                         <span>Scientific Visibility</span>
-                        <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 invited/solicited talk abstract and conference metadata.">Invited EGU 2025 contribution</a></strong>
-                        <p>Presented cloud-microphysics perturbation work combining remote sensing, in-situ observations, and COSMO-SPECS modelling.</p>
+                        <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 Session AS1.14; abstract doi:10.5194/egusphere-egu25-12739.">Invited EGU 2025 contribution</a></strong>
+                        <p>Session AS1.14: cloud-microphysics perturbation work combining remote sensing, in-situ observations, and COSMO-SPECS modelling. Abstract <a href="https://doi.org/10.5194/egusphere-egu25-12739" target="_blank" rel="noreferrer" data-preview="EGU25 abstract DOI on Egusphere.">doi:10.5194/egusphere-egu25-12739</a>.</p>
                     </div>
                     <div class="highlight-card">
                         <span>Research Coordination</span>
@@ -886,18 +913,30 @@
             <section class="band">
                 <div class="band-header">
                     <span class="band-number">05</span>
-                    <h2>Talks &amp; Publications</h2>
+                    <h2>Talks &amp; peer-reviewed publications</h2>
                 </div>
                 <div class="talk-card">
-                    <span class="year">EGU General Assembly 2025 · Invited / solicited talk</span>
-                    <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 abstract: combined remote sensing, in-situ data, and COSMO-SPECS modelling.">Combined Remote-Sensing, In-Situ and Modelling of Cloud Microphysical Perturbations in Supercooled Stratus Clouds</a></strong>
-                    <p>Opened Atmospheric Sciences sessions with results from CLOUDLAB/PolarCAP work on aerosol-cloud interactions, field data, and COSMO-SPECS ensembles.</p>
+                    <span class="year">EGU General Assembly 2025 · Session AS1.14 · Invited / solicited talk</span>
+                    <strong><a href="https://meetingorganizer.copernicus.org/EGU25/EGU25-12739.html" target="_blank" rel="noreferrer" data-preview="EGU 2025 Session AS1.14; abstract doi:10.5194/egusphere-egu25-12739.">Combined Remote-Sensing, In-Situ and Modelling of Cloud Microphysical Perturbations in Supercooled Stratus Clouds</a></strong>
+                    <p>Opened Atmospheric Sciences sessions with results from CLOUDLAB/PolarCAP work on aerosol-cloud interactions, field data, and COSMO-SPECS ensembles. Abstract <a href="https://doi.org/10.5194/egusphere-egu25-12739" target="_blank" rel="noreferrer" data-preview="EGU25 abstract DOI on Egusphere.">doi:10.5194/egusphere-egu25-12739</a>.</p>
+                </div>
+                <div class="talk-card talk-card--with-video">
+                    <span class="year">3rd Leibniz MMS Days 2018 · Leipzig · Conference talk</span>
+                    <a class="talk-video-thumb" href="https://av.tib.eu/media/35355" target="_blank" rel="noreferrer" data-preview="TIB AV-Portal: open page to watch the conference recording.">
+                        <img src="https://av.tib.eu/thumbnail/35355" alt="Video: Numerical simulation of large atmospheric multiphase mechanisms and detailed combustion kinetics — Leibniz MMS Days 2018, Leipzig" loading="lazy" decoding="async">
+                    </a>
+                    <strong><a href="https://av.tib.eu/media/35355" target="_blank" rel="noreferrer" data-preview="TIB AV-Portal recording: numerical simulation of multiphase chemistry and combustion kinetics (DOI 10.5446/35355).">Numerical simulation of large atmospheric multiphase mechanisms and detailed combustion kinetics</a></strong>
+                    <p>Presentation on the Fortran-based solver for large kinetic systems: Rosenbrock methods, sparse Jacobians, TROPOS and ChemKin mechanism formats, with examples from atmospheric multiphase and gas-phase combustion. Archived with <a href="https://doi.org/10.5446/35355" target="_blank" rel="noreferrer" data-preview="Persistent DOI for the TIB AV-Portal media entry.">doi:10.5446/35355</a>.</p>
                 </div>
                 <ul class="pub-list">
-                    <li><strong>Rug, L., Schimmel, W., et al.</strong> (2025). <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer" data-preview="Geoscientific Model Development paper on Cminor v1.0.">Cminor v1.0</a>. Geoscientific Model Development.</li>
-                    <li><strong>Merker, J., Schimmel, W.</strong> (2023). <a href="https://doi.org/10.1145/3613347.3613358" target="_blank" rel="noreferrer" data-preview="ICoMS paper on data-model sensitivity and label perturbations.">Data model sensitivity</a>. ICoMS.</li>
-                    <li><strong>Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-5343-2022" target="_blank" rel="noreferrer" data-preview="AMT paper on cloud droplet detection with neural-network methods.">Cloud droplet detection with neural networks</a>. Atmospheric Measurement Techniques.</li>
-                    <li><strong>Kalesse-Los, H., Schimmel, W., et al.</strong> (2022). <a href="https://doi.org/10.5194/amt-15-279-2022" target="_blank" rel="noreferrer" data-preview="AMT paper on cloud liquid detection in remote-sensing data.">Cloud liquid detection</a>. Atmospheric Measurement Techniques.</li>
+                    <li>Ohneiser, K., Seifert, P., <strong>Schimmel, W.</strong>, et al. (2026). <a href="https://doi.org/10.5194/acp-26-3223-2026" target="_blank" rel="noreferrer" data-preview="ACP: INP depletion in pre-Alpine winter boundary layer during stratus clouds.">Ice-nucleating particle depletion in the wintertime boundary layer in the pre-Alpine region during stratus cloud conditions</a>. Atmospheric Chemistry and Physics.</li>
+                    <li>Ohneiser, K., Seifert, P., <strong>Schimmel, W.</strong>, et al. (2025). <a href="https://doi.org/10.5194/acp-25-17363-2025" target="_blank" rel="noreferrer" data-preview="ACP: seeder–feeder cloud interaction and precipitation formation.">Impact of seeder-feeder cloud interaction on precipitation formation</a>. Atmospheric Chemistry and Physics.</li>
+                    <li>Rug, L., <strong>Schimmel, W.</strong>, Hoffmann, F., Knoth, O. (2025). <a href="https://doi.org/10.5194/gmd-18-9039-2025" target="_blank" rel="noreferrer" data-preview="GMD: Cminor v1.0 multiphase chemistry integrator."><i>Cminor</i> v1.0 chemical mechanism integrator</a>. Geoscientific Model Development.</li>
+                    <li>Merker, J., <strong>Schimmel, W.</strong> (2023). <a href="https://doi.org/10.1145/3613347.3613358" target="_blank" rel="noreferrer" data-preview="ACM: sensitivity of machine-learning data models to training data.">On Sensitivity of Data Models w.r.t. Training Data</a>. In <em>Proceedings of the 2023 6th International Conference on Mathematics and Statistics</em>, ACM.</li>
+                    <li><strong>Schimmel, W.</strong>, Kalesse-Los, H., Maahn, M., et al. (2022). <a href="https://doi.org/10.5194/amt-15-5343-2022" target="_blank" rel="noreferrer" data-preview="AMT: cloud droplets from vertically pointing cloud radar using neural networks.">Identifying cloud droplets beyond lidar attenuation from vertically pointing cloud radar observations using artificial neural networks</a>. Atmospheric Measurement Techniques.</li>
+                    <li>Vogl, T., Maahn, M., Kneifel, S., <strong>Schimmel, W.</strong>, Moisseev, D., Kalesse-Los, H. (2022). <a href="https://doi.org/10.5194/amt-15-365-2022" target="_blank" rel="noreferrer" data-preview="AMT: neural-network riming from Doppler cloud radar.">Using artificial neural networks to predict riming from Doppler cloud radar observations</a>. Atmospheric Measurement Techniques.</li>
+                    <li>Kalesse-Los, H., <strong>Schimmel, W.</strong>, Luke, E., Seifert, P. (2022). <a href="https://doi.org/10.5194/amt-15-279-2022" target="_blank" rel="noreferrer" data-preview="AMT: Cloudnet evaluation of cloud-liquid detection with pre-trained NN.">Evaluating cloud liquid detection against Cloudnet using cloud radar Doppler spectra in a pre-trained artificial neural network</a>. Atmospheric Measurement Techniques.</li>
+                    <li>Hamadneh, T., Merker, J., <strong>Schimmel, W.</strong>, Schuldt, G. (2022). <a href="https://doi.org/10.1145/3545839.3545846" target="_blank" rel="noreferrer" data-preview="ACM: simplicial Bernstein form and positivity certificates in a digital-twin Galerkin setting.">Simplicial Bernstein form and positivity certificates for solutions obtained in a stationary digital twin by Bernstein Bubnov-Galerkin method</a>. In <em>2022 5th International Conference on Mathematics and Statistics</em>, ACM.</li>
                 </ul>
             </section>
 
